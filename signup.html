@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PEK.A.ROO — Sign Up</title>
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="auth-page">
+
+   <div class="auth-card">
+
+      <div class="auth-logo">
+         <img src="images/logo.avif" alt="Pekaroo Logo">
+         <span class="brand">PEK.A.ROO</span>
+         <span class="subtitle">Create your account</span>
+      </div>
+
+      <!-- Role Selector -->
+      <div class="role-selector">
+         <button type="button" class="role-btn active" id="roleCustomer" onclick="setRole('customer')">
+            Customer
+         </button>
+         <button type="button" class="role-btn" id="roleRider" onclick="setRole('rider')">
+            Rider
+         </button>
+      </div>
+      <input type="hidden" id="role" value="customer">
+
+      <div class="field">
+         <label for="fname">First Name</label>
+         <input type="text" id="fname" placeholder="Juan">
+      </div>
+      <div class="field">
+         <label for="email">Email</label>
+         <input type="email" id="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+         <label for="password">Password</label>
+         <input type="password" id="password" placeholder="At least 6 characters">
+      </div>
+      <div class="field">
+         <label for="phone">Phone Number</label>
+         <input type="text" id="phone" placeholder="+63 9XX XXX XXXX">
+      </div>
+
+      <!-- Customer only -->
+      <div class="field" id="addressField">
+         <label for="address">Delivery Address</label>
+         <input type="text" id="address" placeholder="Street, Barangay, City">
+      </div>
+
+      <!-- Rider only -->
+      <div class="field" id="vehicleField" style="display:none;">
+         <label for="vehicle">Vehicle Type</label>
+         <input type="text" id="vehicle" placeholder="e.g. Motorcycle, Bicycle">
+      </div>
+
+      <button class="btn-primary" onclick="signup()">Create Account</button>
+
+      <div class="auth-footer">
+         Already have an account? <a href="index.html">Sign in</a>
+      </div>
+   </div>
+
+   <div id="toast"></div>
+   <script type="module" src="js/app.js"></script>
+   <script>
+      function setRole(role) {
+         document.getElementById("role").value = role;
+         document.getElementById("roleCustomer").classList.toggle("active", role === "customer");
+         document.getElementById("roleRider").classList.toggle("active", role === "rider");
+         document.getElementById("addressField").style.display = role === "customer" ? "" : "none";
+         document.getElementById("vehicleField").style.display = role === "rider" ? "" : "none";
+      }
+   </script>
+</body>
+
+</html>

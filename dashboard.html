@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEK.A.ROO — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a class="logo-area" href="dashboard.html">
+      <img src="images/logo.avif" alt="Logo">
+      <span class="brand">PEK.A.ROO</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-btn active-nav">Home</a>
+      <a href="cart.html" class="nav-btn">Cart</a>
+      <a href="profile.html" class="nav-btn">Profile</a>
+      <button class="nav-btn logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO / UPPER ===== -->
+  <section class="hero-section">
+    <h2 id="welcomeText">Welcome!</h2>
+    <p>Browse our partner stores below.</p>
+  </section>
+
+  <!-- ===== STORES ===== -->
+  <section class="store-section">
+    <div id="storeList" class="store-grid"></div>
+  </section>
+
+  <!-- ===== LOWER: BG PHOTO + INFO PANEL ===== -->
+  <div class="bg-photo-section">
+    <div class="glass-panel">
+      <h3>About This Project</h3>
+      <p>
+        This website is a student-made clone inspired by the original Pickaroo delivery platform,
+        developed solely for educational and academic purposes. It is not affiliated with or
+        officially connected to the original Pickaroo application.<br><br>
+        The current prototype features partner stores including Jollibee and 7-Eleven, with future
+        plans for additional stores, improved rider systems, online payments, and delivery tracking.
+      </p>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

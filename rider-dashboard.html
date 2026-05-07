@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PEK.A.ROO — Rider Dashboard</title>
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="riders-page">
+
+   <nav class="navbar">
+      <a class="logo-area" href="rider-dashboard.html">
+         <img src="images/logo.avif" alt="Logo">
+         <span class="brand">PEK.A.ROO</span>
+      </a>
+      <div class="nav-links">
+         <a href="rider-dashboard.html" class="nav-btn active-nav">Dashboard</a>
+         <a href="rider-profile.html" class="nav-btn">My Profile</a>
+         <button class="nav-btn logout-btn" onclick="logout()">Logout</button>
+      </div>
+   </nav>
+
+   <div class="riders-body">
+      <h2 id="riderName">Hey!</h2>
+      <p class="page-sub">Here's what's waiting for you today.</p>
+
+      <!-- Tab Nav -->
+      <div class="tab-bar">
+         <button class="tab-btn active" onclick="switchTab('queue')">Order Queue</button>
+         <button class="tab-btn" onclick="switchTab('active')">My Deliveries</button>
+      </div>
+
+      <!-- Queue Tab -->
+      <div id="tab-queue">
+         <div id="orderQueue" class="order-list">
+            <p class="empty-msg">Loading orders…</p>
+         </div>
+      </div>
+
+      <!-- My Deliveries Tab -->
+      <div id="tab-active" style="display:none;">
+         <div id="myDeliveries" class="order-list">
+            <p class="empty-msg">Loading…</p>
+         </div>
+      </div>
+   </div>
+
+   <div id="toast"></div>
+   <script type="module">
+      import { loadMyDeliveries } from "./js/app.js";
+    window._loadMyDeliveries = loadMyDeliveries;
+  </script>
+   <script type="module" src="js/app.js"></script>
+   <script>
+      function switchTab(tab) {
+         document.getElementById("tab-queue").style.display = tab === "queue" ? "" : "none";
+         document.getElementById("tab-active").style.display = tab === "active" ? "" : "none";
+         document.querySelectorAll(".tab-btn").forEach((b, i) =>
+            b.classList.toggle("active", (tab === "queue" && i === 0) || (tab === "active" && i === 1))
+         );
+         if (tab === "active" && window._loadMyDeliveries) window._loadMyDeliveries();
+      }
+   </script>
+</body>
+
+</html>

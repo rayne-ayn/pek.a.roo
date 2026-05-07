@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PEK.A.ROO — My Orders</title>
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="cart-page">
+
+   <nav class="navbar">
+      <a class="logo-area" href="dashboard.html">
+         <img src="images/logo.avif" alt="Logo">
+         <span class="brand">PEK.A.ROO</span>
+      </a>
+      <div class="nav-links">
+         <a href="dashboard.html" class="nav-btn">Home</a>
+         <a href="my-orders.html" class="nav-btn active-nav">My Orders</a>
+         <a href="profile.html" class="nav-btn">Profile</a>
+         <button class="nav-btn logout-btn" onclick="logout()">Logout</button>
+      </div>
+   </nav>
+
+   <div class="cart-body">
+      <div class="cart-header">
+         <h2>My Orders</h2>
+         <a href="cart.html" class="linkBacktoCart">Go Back to Cart</a>
+      </div>
+      <p class="cart-sub">Track your deliveries and payment status.</p>
+      <div id="orderList" class="order-list">
+         <p class="empty-msg">Loading your orders…</p>
+      </div>
+   </div>
+
+   <div id="toast"></div>
+   <script type="module" src="js/app.js"></script>
+   <script type="module" src="js/my-orders.js"></script>
+</body>
+
+</html>
